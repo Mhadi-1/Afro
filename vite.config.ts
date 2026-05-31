@@ -3,9 +3,16 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
 // https://vitejs.dev/config/
-
 export default defineConfig({
-  base: "/Afro/", // 👈 ADD THIS LINE (Make sure to include the slashes)
+  server: {
+    host: "::",
+    port: 8080,
+  },
   plugins: [react()],
-  // ... rest of your config
+  base: "/Afro/",
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
 });
